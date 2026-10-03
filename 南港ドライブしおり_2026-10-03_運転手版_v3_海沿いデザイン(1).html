@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>南港ドライブしおり｜2026-10-03</title>
+<style>
+:root{
+  --sky:#dff3fb;
+  --sea:#7fc7d9;
+  --deep:#2f7f98;
+  --navy:#174b63;
+  --foam:#f7fdff;
+  --sand:#f7efd8;
+  --coral:#f29e77;
+  --sun:#ffd76b;
+  --text:#1c3542;
+  --sub:#55707c;
+  --line:#d2e5ec;
+  --card:rgba(255,255,255,.95);
+  --shadow:0 10px 28px rgba(21,72,97,.10);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
+  line-height:1.72;
+  background:
+    radial-gradient(circle at 16px 16px, rgba(255,255,255,.45) 2px, transparent 2.5px) 0 0/28px 28px,
+    linear-gradient(180deg, #eaf9ff 0%, #d8f2fb 22%, #c5e8f4 38%, #b9dfe8 50%, #eef8fb 100%);
+}
+.wrap{
+  max-width:840px;
+  margin:0 auto;
+  padding:16px 14px calc(72px + env(safe-area-inset-bottom));
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:28px;
+  padding:22px 18px 34px;
+  color:#fff;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,0) 24%),
+    linear-gradient(180deg, #4ca8d0 0%, #2b87ae 52%, #1d6686 100%);
+  box-shadow:var(--shadow);
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:auto -10% -12px -10%;
+  height:88px;
+  background:
+    radial-gradient(120px 40px at 12% 10%, rgba(255,255,255,.85) 35%, transparent 36%) 0 0/240px 64px repeat-x,
+    radial-gradient(130px 44px at 58% 4%, rgba(255,255,255,.55) 35%, transparent 36%) 0 18px/250px 70px repeat-x;
+  opacity:.55;
+  pointer-events:none;
+}
+.hero-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.34);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.06em;
+}
+.hero h1{
+  margin:0 0 8px;
+  font-size:clamp(29px,6vw,44px);
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:-.02em;
+}
+.hero-sub{
+  max-width:680px;
+  margin:0 0 16px;
+  color:rgba(255,255,255,.95);
+  font-size:16px;
+}
+.fixed-times-title{
+  margin:3px 0 7px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.09em;
+  color:#e7fbff;
+}
+.fixed-times{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.fixed-item{
+  min-width:0;
+  padding:10px 8px;
+  border-radius:16px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.30);
+  backdrop-filter:blur(4px);
+  text-align:center;
+}
+.fixed-label{
+  display:block;
+  min-height:2.8em;
+  font-size:12px;
+  line-height:1.35;
+  font-weight:800;
+  color:#eefcff;
+}
+.fixed-value{
+  display:block;
+  margin-top:3px;
+  font-size:17px;
+  line-height:1.35;
+  font-weight:900;
+  color:#fff;
+}
+.weather-bar{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:14px 16px;
+  box-shadow:var(--shadow);
+}
+.weather-icon{font-size:32px;line-height:1}
+.weather-title{
+  font-size:20px;
+  font-weight:900;
+  color:var(--navy);
+}
+.weather-detail{
+  color:var(--sub);
+  font-size:15px;
+}
+section[id]{scroll-margin-top:18px}
+.section{
+  margin-top:14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:18px 16px;
+}
+#overview{border-left:8px solid #55b4d4}
+#schedule{border-left:8px solid #ffd76b}
+#navigation{border-left:8px solid #2f9bc0}
+#safety{border-left:8px solid #f29e77}
+#status{border-left:8px solid #67b7a2}
+#sources{border-left:8px solid #7eb8cc}
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0 0 14px;
+  font-size:22px;
+  font-weight:900;
+  color:var(--navy);
+}
+.section-title::after{
+  content:"";
+  flex:1;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(76,168,208,.45), transparent);
+}
+p{margin:.35em 0}
+strong{color:var(--navy)}
+.route-overview{
+  margin:0 0 14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:#fff;
+}
+.route-row{
+  display:grid;
+  grid-template-columns:54px 1fr;
+  gap:10px;
+  padding:12px;
+}
+.route-row + .route-row{border-top:1px solid var(--line)}
+.route-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:28px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+  color:#173847;
+  background:var(--sand);
+}
+.route-row:nth-child(2) .route-label{
+  background:#dff3fb;
+}
+.route-path{
+  color:var(--sub);
+  font-weight:700;
+  font-size:15px;
+}
+.route-break{display:block}
+.callout{
+  margin-top:12px;
+  padding:13px 14px;
+  border-radius:16px;
+  font-size:15px;
+}
+.callout-route{
+  background:#eef9fd;
+  border:1px solid rgba(47,127,152,.28);
+  color:var(--text);
+}
+.callout-warn{
+  background:#fff7e8;
+  border:1px solid rgba(242,158,119,.45);
+  color:#7c4f35;
+}
+.timeline{
+  position:relative;
+  margin-top:8px;
+  padding-left:22px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:8px;
+  top:8px;
+  bottom:8px;
+  width:3px;
+  border-radius:999px;
+  background:linear-gradient(180deg, #67cae3, #2f9bc0, #ffd76b);
+}
+.tl-item{
+  position:relative;
+  padding:0 0 16px 14px;
+}
+.tl-item::before{
+  content:"";
+  position:absolute;
+  left:-20px;
+  top:8px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#55b4d4;
+  box-shadow:0 0 0 4px rgba(85,180,212,.18);
+}
+.tl-item.highlight::before{
+  background:var(--sun);
+  box-shadow:0 0 0 4px rgba(255,215,107,.30);
+}
+.tl-time{
+  font-size:15px;
+  font-weight:900;
+  color:var(--deep);
+}
+.tl-name{
+  font-size:20px;
+  font-weight:900;
+  color:var(--navy);
+  line-height:1.45;
+}
+.tl-desc{
+  color:var(--sub);
+  font-size:15px;
+  margin-top:2px;
+}
+.nav-list{
+  list-style:none;
+  margin:8px 0 0;
+  padding:0;
+}
+.nav-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.nav-list li:last-child{border-bottom:0}
+.nav-num{
+  min-width:2em;
+  font-size:15px;
+  font-weight:900;
+  color:var(--deep);
+}
+.nav-name{
+  font-weight:900;
+  color:var(--navy);
+  display:block;
+}
+.nav-addr{
+  display:block;
+  color:var(--sub);
+  font-size:15px;
+  margin-top:2px;
+}
+.map-link{
+  display:inline-block;
+  margin-top:7px;
+  color:var(--deep);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:800;
+  border-bottom:2px solid rgba(47,127,152,.35);
+}
+.card-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px 15px;
+}
+.tag{
+  display:inline-block;
+  margin-bottom:6px;
+  padding:3px 10px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:900;
+}
+.tag-pink{background:#fde4d8;color:#8b5636}
+.tag-yellow{background:#fff3bf;color:#7d6300}
+.tag-blue{background:#dff3fb;color:#0b5f7b}
+.tag-night{background:#d7f0e7;color:#20614d}
+.card-title{
+  font-size:20px;
+  font-weight:900;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.card p,.card li{
+  color:var(--sub);
+  font-size:15px;
+}
+.card ul{padding-left:1.2em;margin:.35em 0}
+.card li{margin:4px 0}
+.checklist{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+.check-item{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 13px;
+  font-size:15px;
+  font-weight:700;
+  color:var(--text);
+  cursor:pointer;
+  transition:opacity .2s, background .2s;
+}
+.check-item input{
+  width:21px;height:21px;flex:0 0 auto;margin-top:3px;
+  accent-color:#2f9bc0;
+}
+.check-item.done{opacity:.58;background:#f4fafc}
+.check-item.done span{text-decoration:line-through}
+.save-note{
+  font-size:14px;color:var(--sub);margin-top:9px;
+}
+.source-list{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.source-list li{
+  padding:11px 0;
+  border-bottom:1px solid var(--line);
+}
+.source-list li:last-child{border-bottom:0}
+.check-link{
+  display:block;
+  color:var(--deep);
+  font-weight:900;
+  text-decoration:none;
+  margin-bottom:3px;
+}
+.check-desc{
+  display:block;
+  font-size:14px;
+  color:var(--sub);
+}
+.alert{
+  border-left:5px solid var(--coral);
+  background:#fff7ec;
+  padding:12px 13px;
+  border-radius:12px;
+}
+.safe{
+  border-left:5px solid #57bfa2;
+  background:#edf9f4;
+  padding:12px 13px;
+  border-radius:12px;
+}
+.small{font-size:.83rem;color:var(--sub)}
+.footer{
+  text-align:center;
+  color:#4b7180;
+  font-size:.82rem;
+  margin-top:18px;
+}
+.bottom-nav{
+  position:fixed;
+  z-index:50;
+  left:50%;
+  bottom:0;
+  transform:translate(-50%,var(--toolbar-follow-y,0px));
+  will-change:transform;
+  width:min(840px,100%);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:0;
+  padding:0 0 env(safe-area-inset-bottom);
+  background:rgba(255,255,255,.98);
+  border:1px solid #bddae4;
+  border-bottom:0;
+  box-shadow:0 -6px 18px rgba(21,72,97,.14);
+  backdrop-filter:blur(8px);
+}
+.bottom-nav a{
+  display:flex;
+  min-height:44px;
+  align-items:center;
+  justify-content:center;
+  padding:7px 3px;
+  text-decoration:none;
+  border-right:1px solid #cce2ea;
+  font-size:clamp(10px,3vw,12px);
+  font-weight:900;
+  line-height:1.2;
+  white-space:nowrap;
+}
+.bottom-nav a:nth-child(1){background:#fff5cf;color:#6a5a00}
+.bottom-nav a:nth-child(2){background:#ddf3fa;color:#0d617d}
+.bottom-nav a:nth-child(3){background:#fff0e8;color:#8d5838}
+.bottom-nav a:nth-child(4){background:#e6f7f1;color:#225c4b}
+.bottom-nav a:nth-child(5){background:#1d6686;color:#fff;border-right:0}
+@media(min-width:620px){
+  .card-grid-2{grid-template-columns:1fr 1fr}
+  .checklist{grid-template-columns:1fr 1fr}
+  .wrap{padding-left:18px;padding-right:18px}
+  .section{padding:22px 20px}
+  .hero{padding:28px 24px 38px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:27px}
+  .hero-sub,.weather-detail,.tl-desc,.route-path,.nav-addr,.card p,.card li{font-size:14px}
+  .fixed-times{gap:6px}
+  .fixed-item{padding:9px 6px}
+  .fixed-label{font-size:11px}
+  .fixed-value{font-size:15px}
+}
+@media print{
+  .bottom-nav{display:none!important}
+  body{background:#fff}
+  .wrap{padding-bottom:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+  <header class="hero">
+    <div class="hero-badge">Seaside Drive · 2026.10.03 Sat</div>
+    <h1>南港ドライブしおり</h1>
+    <p class="hero-sub">海沿いを気持ちよく流しながら、南港の港湾風景と野鳥園を楽しむ一人ドライブ。買い物を済ませてから、南港の端まで走る軽めのおでかけです。</p>
+    <div class="fixed-times-title">固定条件</div>
+    <div class="fixed-times" aria-label="固定条件">
+      <div class="fixed-item"><span class="fixed-label">出発</span><span class="fixed-value">11:00</span></div>
+      <div class="fixed-item"><span class="fixed-label">帰宅目安</span><span class="fixed-value">19:30まで</span></div>
+      <div class="fixed-item"><span class="fixed-label">ルート方針</span><span class="fixed-value">基本下道</span></div>
+    </div>
+  </header>
+
+  <div class="weather-bar">
+    <div class="weather-icon">🌤️</div>
+    <div>
+      <div class="weather-title">10/3（土）住之江区・南港周辺</div>
+      <div class="weather-detail">11〜17時は晴れ予報で、降水確率は0％。気温はおおむね24〜27℃、北寄りの風3m/s前後。日没は17:40ごろです。</div>
+    </div>
+  </div>
+
+  <section class="section" id="overview">
+    <div class="section-title">🧭 概要</div>
+    <p><strong>Seria 布施南店で買い物 → マック／コンビニで軽食確保 → 南港魚つり園付近を通過 → 港大橋臨港緑地は車窓中心 → 大阪南港野鳥園で休憩・散策 → 下道で帰宅</strong>、という流れです。</p>
+    <div class="safe">今回は「海沿いを走ること」も楽しみの一部です。無理に立ち寄りを増やさず、港湾部の雰囲気と運転そのものを楽しむ軽めのプランにしています。</div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-title">⏱️ 旅程</div>
+
+    <div class="route-overview">
+      <div class="route-row">
+        <span class="route-label">前半</span>
+        <div class="route-path">稲葉 → Seria 布施南店 → マック／コンビニで軽食確保 → 南港方面へ</div>
+      </div>
+      <div class="route-row">
+        <span class="route-label">後半</span>
+        <div class="route-path">南港魚つり園付近を通過 → 港大橋臨港緑地を車窓確認 → 大阪南港野鳥園 → 必要なら南港を少し流して帰宅</div>
+      </div>
+    </div>
+
+    <div class="callout callout-route"><strong>昼食方針：</strong>今回は店に入って食べるより、マクドナルドやコンビニで手早く済ませる前提です。時間を固定しすぎず、その場の空腹具合で柔軟に対応します。</div>
+
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-name">🚗 東大阪市 稲葉 出発</div><div class="tl-desc">基本下道。今日は時間に余裕があるので、急がず南港へ向かいます。</div></div>
+      <div class="tl-item highlight"><div class="tl-time">11:10〜11:50頃</div><div class="tl-name">🛍️ Seria 布施南店</div><div class="tl-desc">買い物の目安は30〜45分。営業時間は10:00〜20:30です。</div></div>
+      <div class="tl-item"><div class="tl-time">11:50〜12:20頃</div><div class="tl-name">🍔 マック or コンビニ</div><div class="tl-desc">進行方向で入りやすい店を使い、軽く昼食を確保。車内休憩でもOKです。</div></div>
+      <div class="tl-item"><div class="tl-time">12:40頃</div><div class="tl-name">🎣 南港魚つり園付近</div><div class="tl-desc">今回は釣りをしないので、駐車場には入らず周辺の雰囲気を見るだけで通過します。</div></div>
+      <div class="tl-item"><div class="tl-time">13:00頃</div><div class="tl-name">🌉 港大橋臨港緑地</div><div class="tl-desc">巨大な港大橋を間近に見られるポイント。一般向け駐車場は確認できないため、基本は車窓確認です。</div></div>
+      <div class="tl-item highlight"><div class="tl-time">13:30〜15:00頃</div><div class="tl-name">🦆 大阪南港野鳥園</div><div class="tl-desc">今回の本命。無料駐車場があり、車を停めてしっかり休憩・散策できます。展望塔は9:00〜17:00です。</div></div>
+      <div class="tl-item"><div class="tl-time">15:00〜17:00頃</div><div class="tl-name">🚘 気分次第で南港を少し流す</div><div class="tl-desc">満足したらそのまま帰宅。まだ走りたいなら、南港・咲洲周辺を少し延長する程度で十分です。</div></div>
+      <div class="tl-item"><div class="tl-time">17:30目安</div><div class="tl-name">↩️ 南港エリアを離れる</div><div class="tl-desc">遅くとも18:00には帰路へ。19:30帰宅に対して余裕を残します。</div></div>
+      <div class="tl-item"><div class="tl-time">18:30前後</div><div class="tl-name">🏠 稲葉 帰着目安</div><div class="tl-desc">渋滞があっても19:30までに帰れるよう、1時間ほどの余白を確保しています。</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="navigation">
+    <div class="section-title">🗺️ ナビ</div>
+    <ol class="nav-list">
+      <li><span class="nav-num">1</span><div><span class="nav-name">Seria 布施南店</span><span class="nav-addr">大阪府東大阪市寿町2丁目1-24 ／ 最初の買い物先</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Seria%20%E5%B8%83%E6%96%BD%E5%8D%97%E5%BA%97%20%E5%A4%A7%E9%98%AA%E5%BA%9C%E6%9D%B1%E5%A4%A7%E9%98%AA%E5%B8%82%E5%AF%BF%E7%94%BA2%E4%B8%81%E7%9B%AE1-24" rel="noopener" target="_blank">📍 地図を開く</a></div></li>
+      <li><span class="nav-num">2</span><div><span class="nav-name">南港魚つり園</span><span class="nav-addr">大阪市住之江区南港南6丁目9-3 ／ 通過地点</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%8D%97%E6%B8%AF%E9%AD%9A%E3%81%A4%E3%82%8A%E5%9C%92%20%E5%A4%A7%E9%98%AA%E5%B8%82%E4%BD%8F%E4%B9%8B%E6%B1%9F%E5%8C%BA%E5%8D%97%E6%B8%AF%E5%8D%976%E4%B8%81%E7%9B%AE9-3" rel="noopener" target="_blank">📍 地図を開く</a></div></li>
+      <li><span class="nav-num">3</span><div><span class="nav-name">港大橋臨港緑地</span><span class="nav-addr">大阪市住之江区南港東9丁目1 ／ 車窓中心</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E6%B8%AF%E5%A4%A7%E6%A9%8B%E8%87%A8%E6%B8%AF%E7%B7%91%E5%9C%B0%20%E5%A4%A7%E9%98%AA%E5%B8%82%E4%BD%8F%E4%B9%8B%E6%B1%9F%E5%8C%BA%E5%8D%97%E6%B8%AF%E6%9D%B19%E4%B8%81%E7%9B%AE1" rel="noopener" target="_blank">📍 地図を開く</a></div></li>
+      <li><span class="nav-num">4</span><div><span class="nav-name">大阪南港野鳥園</span><span class="nav-addr">大阪市住之江区南港北3丁目5-30 ／ 本命の立ち寄り先</span><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%98%AA%E5%8D%97%E6%B8%AF%E9%87%8E%E9%B3%A5%E5%9C%92%20%E5%A4%A7%E9%98%AA%E5%B8%82%E4%BD%8F%E4%B9%8B%E6%B1%9F%E5%8C%BA%E5%8D%97%E6%B8%AF%E5%8C%973%E4%B8%81%E7%9B%AE5-30" rel="noopener" target="_blank">📍 地図を開く</a></div></li>
+      <li><span class="nav-num">帰</span><div><span class="nav-name">自宅（東大阪市 稲葉）</span><span class="nav-addr">帰りも基本下道。渋滞状況に応じて走りやすいルートを選びます。</span></div></li>
+    </ol>
+
+    <div class="callout callout-warn"><strong>ナビの使い方：</strong>全部を一度に入れず、その都度次の目的地へ切り替える方が意図した流れを保ちやすいです。走行中の操作はせず、安全な場所で停車して変更してください。</div>
+  </section>
+
+  <section class="section" id="safety">
+    <div class="section-title">⚠️ 注意</div>
+    <div class="card-grid card-grid-2">
+      <div class="card">
+        <span class="tag tag-blue">港湾部</span>
+        <div class="card-title">大型車に注意</div>
+        <p>南港南〜南港東は物流・コンテナターミナルエリアで、大型トラックが多いです。左折巻き込み、車線変更、前方車の急減速に注意してください。</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-yellow">港大橋</span>
+        <div class="card-title">駐車前提にしない</div>
+        <p>港大橋臨港緑地は一般向け駐車場を確認できていません。停めにくければ無理をせず、そのまま通過で問題ありません。</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-night">野鳥園</span>
+        <div class="card-title">無料駐車場あり</div>
+        <p>大阪南港野鳥園は無料駐車場が約20台あります。満車なら待ち続けず、短時間で切り替える意識で。</p>
+      </div>
+      <div class="card">
+        <span class="tag tag-pink">帰り道</span>
+        <div class="card-title">帰路は柔軟に</div>
+        <p>帰りは特定の道に固執せず、ナビが示す下道の通りやすいルートを優先。19:30帰宅に対して十分な余裕を残します。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="status">
+    <div class="section-title">🧭 撤退・切り替えライン</div>
+    <div class="alert">
+      <strong>17:00：</strong> 野鳥園の展望塔終了<br>
+      <strong>17:40頃：</strong> 日没。海沿いの景色は暗くなり始める<br>
+      <strong>18:00：</strong> 遅くとも南港から帰路へ<br>
+      <strong>19:30：</strong> 帰宅期限
+    </div>
+    <p class="small">今回は「一人で無理なく楽しめること」を優先しています。港大橋で停めにくい、野鳥園が混んでいる、走り疲れた、のどれかがあれば、その時点で短縮してOKです。</p>
+  </section>
+
+  <section class="section" id="sources">
+    <div class="section-title">🔗 確認済み情報</div>
+    <ul class="source-list">
+      <li><a class="check-link" href="https://www.seria-group.com/shop/detail.html?code=000002878" target="_blank" rel="noopener">Seria 布施南店</a><span class="check-desc">営業時間 10:00〜20:30</span></li>
+      <li><a class="check-link" href="https://nankou-uotsuri-en.com/" target="_blank" rel="noopener">南港魚つり園 公式</a><span class="check-desc">4〜11月 5:00〜19:00、水曜休園、入園無料、午後入庫の駐車場1,500円</span></li>
+      <li><a class="check-link" href="https://www.city.osaka.lg.jp/port/page/0000553564.html" target="_blank" rel="noopener">港大橋臨港緑地（大阪市）</a><span class="check-desc">2024年7月から供用再開。一般向け駐車場案内は確認できず</span></li>
+      <li><a class="check-link" href="https://www.city.osaka.lg.jp/kensetsu/page/0000460774.html" target="_blank" rel="noopener">大阪南港野鳥園（大阪市）</a><span class="check-desc">展望塔 9:00〜17:00、利用無料、無料駐車場あり</span></li>
+      <li><a class="check-link" href="https://tenki.jp/forecast/6/30/6200/27125/1hour.html" target="_blank" rel="noopener">住之江区の天気</a><span class="check-desc">本日11〜17時は晴れ、降水確率0％、日没は17:40ごろ</span></li>
+    </ul>
+    <p class="small">確認日：2026年10月3日。現地の交通状況・満車・一時的な規制は当日変動します。現地標識とナビの交通情報を優先してください。</p>
+  </section>
+
+  <div class="footer">南港ドライブしおり｜海沿いドライブデザイン｜2026-10-03</div>
+</div>
+
+<nav class="bottom-nav" aria-label="固定メニュー">
+  <a href="#schedule">⏱️ 旅程</a>
+  <a href="#navigation">🗺️ ナビ</a>
+  <a href="#safety">⚠️ 注意</a>
+  <a href="#status">🧭 撤退</a>
+  <a href="#top">⬆️ TOP</a>
+</nav>
+
+<script>
+(function(){
+  var storageKey="nanko-drive-v3-checks";
+  var boxes=document.querySelectorAll("[data-day-check]");
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(storageKey)||"{}");}catch(e){saved={};}
+  function save(){
+    var state={};
+    boxes.forEach(function(box){
+      state[box.id]=box.checked;
+      box.closest(".check-item").classList.toggle("done",box.checked);
+    });
+    try{localStorage.setItem(storageKey,JSON.stringify(state));}catch(e){}
+  }
+  boxes.forEach(function(box){
+    box.checked=Boolean(saved[box.id]);
+    box.closest(".check-item").classList.toggle("done",box.checked);
+    box.addEventListener("change",save);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector(".bottom-nav");
+  var viewport=window.visualViewport;
+  if(!nav||!viewport){return;}
+  var expandedHeight=viewport.height;
+  var frame=0;
+  function applyToolbarFollow(){
+    frame=0;
+    expandedHeight=Math.min(expandedHeight,viewport.height);
+    var shift=Math.round(viewport.height-expandedHeight);
+    if(Math.abs(viewport.scale-1)>.01){shift=0;}
+    shift=Math.max(0,Math.min(12,shift));
+    nav.style.setProperty("--toolbar-follow-y",shift+"px");
+  }
+  function scheduleToolbarFollow(){
+    if(frame){return;}
+    frame=requestAnimationFrame(applyToolbarFollow);
+  }
+  viewport.addEventListener("resize",scheduleToolbarFollow,{passive:true});
+  viewport.addEventListener("scroll",scheduleToolbarFollow,{passive:true});
+  window.addEventListener("orientationchange",function(){
+    expandedHeight=viewport.height;
+    scheduleToolbarFollow();
+  });
+  window.addEventListener("pageshow",function(){
+    expandedHeight=viewport.height;
+    scheduleToolbarFollow();
+  });
+  applyToolbarFollow();
+})();
+</script>
+</body>
+</html>
